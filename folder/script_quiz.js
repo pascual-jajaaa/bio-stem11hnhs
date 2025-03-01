@@ -7,9 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const detailsSubmitBtn = document.getElementById('details-submit-btn');
     const timer = document.getElementById('timer');
     const timeDisplay = document.getElementById('time');
+    const resultContainer = document.getElementById('result');
     let timeLeft = 100;
     let currentQuestionIndex = 0;
     let questions = [];
+    let score = 0;
 
     // Fetch quiz data
     fetch('./quiz.json')
@@ -61,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         questionsContainer.classList.add('hidden');
         nextQuestionBtn.classList.add('hidden');
         quizSubmitBtn.classList.add('hidden');
+        timer.classList.add('hidden');
         userDetails.classList.remove('hidden');
     }
 
@@ -74,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle quiz submit button click
     quizSubmitBtn.addEventListener('click', () => {
+        calculateScore();
         showUserDetailsForm();
     });
 
@@ -83,8 +87,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const gradeSection = document.getElementById('grade-section').value;
         if (name && gradeSection) {
             alert('Details submitted successfully!');
+            showResult();
         } else {
             alert('Please fill in all details.');
         }
     });
+
+    // Calculate score
+    function calculateScore() {
+        questions.forEach((question, index) => {
+            const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+            if (selectedOption && selectedOption.value === question.answer) {
+                score++;
+            }
+        });
+    }
+
+    
+    // Show result
+    function showResult() {
+        resultContainer.classList.remove('hidden');
+        resultContainer.textContent = `Your score is ${score} out of ${questions.length}`;
+    }
 });
