@@ -40,3 +40,8 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+iframe {
+    width: 100%;
+    height: calc(25% + 50px);
+}
