@@ -43,5 +43,5 @@ footer {
 
 iframe {
     width: 100%;
-    height: calc(25% + 50px);
+    height: 30dvh;
 }
