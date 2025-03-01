@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <label>
                     <input type="radio" name="question${index}" value="${option}">
                     ${option}
-                </label>
+                </label><br>
             `).join('')}
         `;
         questionsContainer.appendChild(questionDiv);
@@ -80,9 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle user details submit button click
     detailsSubmitBtn.addEventListener('click', () => {
         const name = document.getElementById('name').value;
-        const grade = document.getElementById('grade').value;
-        const section = document.getElementById('section').value;
-        if (name && grade && section) {
+        const gradeSection = document.getElementById('grade-section').value;
+        if (name && gradeSection) {
             alert('Details submitted successfully!');
         } else {
             alert('Please fill in all details.');
