@@ -2,6 +2,8 @@ let quizData;
 let currentQuestionIndex = 0;
 let timer;
 let timeLeft = 60;
+let score = 0; // Initialize score
+let userAnswers = []; // Array to store user answers
 
 document.addEventListener("DOMContentLoaded", () => {
     fetch('quiz.json')
@@ -66,9 +68,21 @@ function submitQuiz() {
     
     // Show user details section
     document.getElementById('user-details').classList.remove('hidden');
-    
-    // Optionally, you can also display the score or any other information here
-    // For example, you can calculate the score based on the answers given
+
+    // Calculate and display the score
+    calculateScore();
+}
+
+function calculateScore() {
+    quizData.questions.forEach((question, index) => {
+        const selectedOption = document.querySelector(`input[name="option"]:checked`);
+        if (selectedOption && selectedOption.value === question.answer) {
+            score++;
+        }
+    });
+
+    // Display the score to the user
+    alert(`Your score is: ${score} out of ${quizData.questions.length}`);
 }
 
 // Add event listener for the submit button

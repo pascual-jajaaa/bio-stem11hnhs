@@ -1,17 +1,65 @@
 {
-"quizTitle": "General Knowledge Quiz",
-"questions": [
-    {
-    "question": "What is the capital of France?",
-    "options": ["Berlin", "Madrid", "Paris", "Rome"],
-    "answer": "Paris",
-    "image": "path/to/image1.jpg"
-    },
-    {
-    "question": "Which planet is known as the Red Planet?",
-    "options": ["Earth", "Mars", "Jupiter", "Saturn"],
-    "answer": "Mars",
-    "image": "path/to/image2.jpg"
-    }
-]
+    "quizTitle": "Connective Tissues Quiz",
+    "questions": [
+        {
+            "question": "What is the primary function of connective tissues?",
+            "options": ["Support and bind other tissues", "Transmit nerve impulses", "Contract to produce movement", "Secrete hormones"],
+            "answer": "Support and bind other tissues",
+            "image": ""
+        },
+        {
+            "question": "Which type of connective tissue is found in tendons and ligaments?",
+            "options": ["Loose connective tissue", "Dense connective tissue", "Cartilage", "Bone"],
+            "answer": "Dense connective tissue",
+            "image": ""
+        },
+        {
+            "question": "What is the main component of the extracellular matrix in connective tissues?",
+            "options": ["Cells", "Fibers", "Ground substance", "Blood vessels"],
+            "answer": "Ground substance",
+            "image": ""
+        },
+        {
+            "question": "Which type of connective tissue acts as a shock absorber and insulates the body?",
+            "options": ["Adipose tissue", "Areolar tissue", "Reticular tissue", "Dense regular tissue"],
+            "answer": "Adipose tissue",
+            "image": ""
+        },
+        {
+            "question": "What type of connective tissue is found in the ear and nose, providing flexible support?",
+            "options": ["Bone", "Cartilage", "Dense connective tissue", "Loose connective tissue"],
+            "answer": "Cartilage",
+            "image": ""
+        },
+        {
+            "question": "Which type of connective tissue is responsible for transporting nutrients and waste products throughout the body?",
+            "options": ["Bone", "Cartilage", "Blood", "Lymph"],
+            "answer": "Blood",
+            "image": ""
+        },
+        {
+            "question": "What is the function of reticular connective tissue?",
+            "options": ["Support and bind other tissues", "Store fat", "Form a soft internal skeleton for organs", "Transport oxygen"],
+            "answer": "Form a soft internal skeleton for organs",
+            "image": ""
+        },
+        {
+            "question": "Which type of connective tissue is characterized by a high density of collagen fibers?",
+            "options": ["Loose connective tissue", "Dense connective tissue", "Adipose tissue", "Reticular tissue"],
+            "answer": "Dense connective tissue",
+            "image": ""
+        },
+        {
+            "question": "What is the primary function of bone tissue?",
+            "options": ["Store fat", "Provide structural support", "Transport nutrients", "Secrete hormones"],
+            "answer": "Provide structural support",
+            "image": ""
+        },
+        {
+            "question": "Which type of connective tissue is found in the walls of large arteries, providing elasticity?",
+            "options": ["Elastic connective tissue", "Dense regular connective tissue", "Adipose tissue", "Reticular tissue"],
+            "answer": "Elastic connective tissue",
+            "image": ""
+        }
+    ]
 }
