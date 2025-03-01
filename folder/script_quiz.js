@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentQuestionIndex = 0;
     let questions = [];
     let score = 0;
+    let countdown;
 
     // Fetch quiz data
     fetch('./quiz.json')
@@ -20,18 +21,21 @@ document.addEventListener('DOMContentLoaded', function() {
             quizTitle.textContent = data.quizTitle;
             questions = data.questions;
             showQuestion(currentQuestionIndex);
+            startTimer();
         });
 
-    // Timer countdown
-    const countdown = setInterval(() => {
-        if (timeLeft <= 0) {
-            clearInterval(countdown);
-            showUserDetailsForm();
-        } else {
-            timeLeft--;
-            timeDisplay.textContent = timeLeft;
-        }
-    }, 1000);
+    // Start the timer
+    function startTimer() {
+        countdown = setInterval(() => {
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                showUserDetailsForm();
+            } else {
+                timeLeft--;
+                timeDisplay.textContent = timeLeft;
+            }
+        }, 1000);
+    }
 
     // Show a specific question
     function showQuestion(index) {
@@ -77,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle quiz submit button click
     quizSubmitBtn.addEventListener('click', () => {
+        clearInterval(countdown); // Stop the timer
         calculateScore();
         showUserDetailsForm();
     });
@@ -103,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    
     // Show result
     function showResult() {
         resultContainer.classList.remove('hidden');
