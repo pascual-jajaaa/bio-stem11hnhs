@@ -1,97 +1,66 @@
-let quizData;
-let currentQuestionIndex = 0;
-let timer;
-let timeLeft = 60;
-let score = 0; // Initialize score
-let userAnswers = []; // Array to store user answers
+document.addEventListener('DOMContentLoaded', function() {
+    const quizTitle = document.getElementById('quiz-title');
+    const questionsContainer = document.getElementById('questions-container');
+    const quizSubmitBtn = document.getElementById('quiz-submit-btn');
+    const userDetails = document.getElementById('user-details');
+    const detailsSubmitBtn = document.getElementById('details-submit-btn');
+    const timer = document.getElementById('timer');
+    const timeDisplay = document.getElementById('time');
+    let timeLeft = 60;
 
-document.addEventListener("DOMContentLoaded", () => {
-    fetch('quiz.json')
+    // Fetch quiz data
+    fetch('./quiz.json')
         .then(response => response.json())
         .then(data => {
-            quizData = data;
-            displayQuiz();
-            startTimer();
+            quizTitle.textContent = data.quizTitle;
+            data.questions.forEach((question, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question');
+                questionDiv.innerHTML = `
+                    <p>${index + 1}. ${question.question}</p>
+                    ${question.options.map((option, i) => `
+                        <label>
+                            <input type="radio" name="question${index}" value="${option}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                `;
+                questionsContainer.appendChild(questionDiv);
+            });
         });
-});
 
-function displayQuiz() {
-    document.getElementById('quiz-title').innerText = quizData.quizTitle;
-    loadQuestion();
-}
-
-function loadQuestion() {
-    const questionContainer = document.getElementById('questions-container');
-    questionContainer.innerHTML = '';
-
-    const question = quizData.questions[currentQuestionIndex];
-    const questionElement = document.createElement('div');
-    questionElement.classList.add('question');
-    questionElement.innerHTML = `<p>${question.question}</p>`;
-
-    if (question.image) {
-        const img = document.createElement('img');
-        img.src = question.image;
-        img.alt = question.question;
-        img.style.width = '100%';
-        questionElement.appendChild(img);
-    }
-
-    question.options.forEach(option => {
-        const optionElement = document.createElement('label');
-        optionElement.classList.add('option');
-        optionElement.innerHTML = `
-            <input type="radio" name="option" value="${option}"> ${option}
-        `;
-        questionElement.appendChild(optionElement);
-    });
-
-    questionContainer.appendChild(questionElement);
-}
-
-function startTimer() {
-    timer = setInterval(() => {
-        timeLeft--;
-        document.getElementById('time').innerText = timeLeft;
-
+    // Timer countdown
+    const countdown = setInterval(() => {
         if (timeLeft <= 0) {
-            clearInterval(timer);
-            alert('Time is up!');
-            submitQuiz();
+            clearInterval(countdown);
+            showUserDetailsForm();
+        } else {
+            timeLeft--;
+            timeDisplay.textContent = timeLeft;
         }
     }, 1000);
-}
 
-function submitQuiz() {
-    clearInterval(timer);
-    document.getElementById('questions-container').innerHTML = '<h2>Quiz Finished!</h2>';
-    
-    // Show user details section
-    document.getElementById('user-details').classList.remove('hidden');
+    // Show user details form
+    function showUserDetailsForm() {
+        questionsContainer.classList.add('hidden');
+        quizSubmitBtn.classList.add('hidden');
+        userDetails.classList.remove('hidden');
+    }
 
-    // Calculate and display the score
-    calculateScore();
-}
-
-function calculateScore() {
-    quizData.questions.forEach((question, index) => {
-        const selectedOption = document.querySelector(`input[name="option"]:checked`);
-        if (selectedOption && selectedOption.value === question.answer) {
-            score++;
-        }
+    // Handle quiz submit
+    quizSubmitBtn.addEventListener('click', () => {
+        showUserDetailsForm();
     });
 
-    // Display the score to the user
-    alert(`Your score is: ${score} out of ${quizData.questions.length}`);
-}
-
-// Add event listener for the submit button
-document.getElementById('submit-btn').addEventListener('click', () => {
-    const name = document.getElementById('name').value;
-    const grade = document.getElementById('grade').value;
-    const section = document.getElementById('section').value;
-
-    // Handle the submission of user details here
-    console.log(`Name: ${name}, Grade: ${grade}, Section: ${section}`);
-    alert('Thank you for submitting your details!');
+    // Handle user details submit
+    detailsSubmitBtn.addEventListener('click', () => {
+        const name = document.getElementById('name').value;
+        const grade = document.getElementById('grade').value;
+        const section = document.getElementById('section').value;
+        if (name && grade && section) {
+            alert('Details submitted successfully!');
+        } else {
+            alert('Please fill in all details.');
+        }
+    });
 });
