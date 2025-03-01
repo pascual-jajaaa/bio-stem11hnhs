@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology Topic Title</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsmind@0.8.6/style/jsmind.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsmind@0.8.6/es6/jsmind.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#header").load("header.html"); 
+            $("#footer").load("footer.html");
+        })
+    </script>
+    <style>
+        iframe {
+            width: 100%;
+            height: calc(fit-content + 50px);
+        }
+        #jsmind_container {
+            zoom: 75%;
+        }
+    </style>
+</head>
+<body>
+    <iframe src="header.html" frameborder="0" scrolling="no"></iframe>
+
+    <main>
+        <h2>Connective Tissues</h2>
+        <p>Welcome to our home page! Here you can find information about connective tissues and its different types.</p>
+
+        <section>
+            <h3>Introduction</h3>
+            <p>Connective tissues provide support, connects, and separates different types of tissues and organs in the body. It is composed of cells, fibers and extracellular matrix (large amount)</p>
+        </section>
+
+        <section>
+            <h3>Key Concepts</h3>
+            <ul>
+                <li>Concept 1</li>
+                <li>Concept 2</li>
+                <li>Concept 3</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Further Reading</h3>
+            <p>For more information, check out these resources:</p>
+            <ul>
+                <li><a href="https://www.example.com">Resource 1</a></li>
+                <li><a href="https://www.example.com">Resource 2</a></li>
+                <li><a href="https://www.example.com">Resource 3</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <iframe src="footer.html" frameborder="0"></iframe>
+</body>
+</html>
