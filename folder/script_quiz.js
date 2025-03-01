@@ -57,5 +57,27 @@ function startTimer() {
             alert('Time is up!');
             submitQuiz();
         }
-        }, 1000);
-    }
+    }, 1000);
+}
+
+function submitQuiz() {
+    clearInterval(timer);
+    document.getElementById('questions-container').innerHTML = '<h2>Quiz Finished!</h2>';
+    
+    // Show user details section
+    document.getElementById('user-details').classList.remove('hidden');
+    
+    // Optionally, you can also display the score or any other information here
+    // For example, you can calculate the score based on the answers given
+}
+
+// Add event listener for the submit button
+document.getElementById('submit-btn').addEventListener('click', () => {
+    const name = document.getElementById('name').value;
+    const grade = document.getElementById('grade').value;
+    const section = document.getElementById('section').value;
+
+    // Handle the submission of user details here
+    console.log(`Name: ${name}, Grade: ${grade}, Section: ${section}`);
+    alert('Thank you for submitting your details!');
+});
