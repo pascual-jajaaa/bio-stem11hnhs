@@ -1,37 +1,208 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QUIZ!</title>
-    <link rel="stylesheet" href="quizlib/src/quizlib.css">
-    <script type="text/javascript" src="quizlib/src/quizlib.js"></script>
+    <link rel="stylesheet" href="./quizlib/src/quizlib.css">
+    <script type="text/javascript" src="./quizlib/src/quizlib.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #quiz-div {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quizlib-question {
+            margin-bottom: 20px;
+        }
+
+        .quizlib-question-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .quizlib-question-answers {
+            margin-bottom: 10px;
+        }
+
+        .quizlib-question-answers input {
+            margin-right: 10px;
+        }
+
+        .quizlib-question-answers label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+            color: green;
+        }
+
+        #result.incorrect {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <!-- Quiz Container -->  
 <div id="quiz-div">  
     <!-- Question 1 -->  
     <div class="quizlib-question my-class">  
-        <div class="quizlib-question-title">1. Question Title</div>  
+        <div class="quizlib-question-title">1. What is the primary function of connective tissues?</div>  
         <div class="quizlib-question-answers">  
-            <!-- Answer structure can be as simple or as complicated as you like, 
-                 only the input elements matter to the library -->
-            <input type="radio" name="q1" value="a"> Option 1<br/>
-            <input type="radio" name="q1" value="b"> Option 2<br/>
+            <input type="radio" name="q1" value="Support and bind other tissues"> Support and bind other tissues<br/>
+            <input type="radio" name="q1" value="Transmit nerve impulses"> Transmit nerve impulses<br/>
+            <input type="radio" name="q1" value="Contract to produce movement"> Contract to produce movement<br/>
+            <input type="radio" name="q1" value="Secrete hormones"> Secrete hormones<br/>
         </div>  
     </div>  
     <!-- Question 2 -->  
     <div class="quizlib-question my-class">  
-        <div class="quizlib-question-title">2. Question Title</div>  
-        <div class="quizlib-question-answers">
-            <ul>  
-                <li><label><input type="checkbox" name="q2" value="a"> Option 1</label></li>  
-                <li><label><input type="checkbox" name="q2" value="b"> Option 2</label></li>  
-                <li><label><input type="checkbox" name="q2" value="c"> Option 3</label></li>  
-                <li><label><input type="checkbox" name="q2" value="d"> Option 4</label></li>  
-            </ul>  
+        <div class="quizlib-question-title">2. Which type of connective tissue is found in tendons and ligaments?</div>  
+        <div class="quizlib-question-answers">  
+            <input type="radio" name="q2" value="Loose connective tissue"> Loose connective tissue<br/>
+            <input type="radio" name="q2" value="Dense connective tissue"> Dense connective tissue<br/>
+            <input type="radio" name="q2" value="Cartilage"> Cartilage<br/>
+            <input type="radio" name="q2" value="Bone"> Bone<br/>
         </div>  
-    </div>
+    </div>  
+    <!-- Question 3 -->  
+    <div class="quizlib-question my-class">  
+        <div class="quizlib-question-title">3. What is the main component of the extracellular matrix in connective tissues?</div>  
+        <div class="quizlib-question-answers">  
+            <input type="radio" name="q3" value="Cells"> Cells<br/>
+            <input type="radio" name="q3" value="Fibers"> Fibers<br/>
+            <input type="radio" name="q3" value="Ground substance"> Ground substance<br/>
+            <input type="radio" name="q3" value="Blood vessels"> Blood vessels<br/>
+        </div>  
+    </div>  
+    <!-- Question 4 -->  
+    <div class="quizlib-question my-class">  
+        <div class="quizlib-question-title">4. Which type of connective tissue acts as a shock absorber and insulates the body?</div>  
+        <div class="quizlib-question-answers">  
+            <input type="radio" name="q4" value="Adipose tissue"> Adipose tissue<br/>
+            <input type="radio" name="q4" value="Areolar tissue"> Areolar tissue<br/>
+            <input type="radio" name="q4" value="Reticular tissue"> Reticular tissue<br/>
+            <input type="radio" name="q4" value="Dense regular tissue"> Dense regular tissue<br/>
+        </div>  
+    </div>  
+    <!-- Question 5 -->  
+    <div class="quizlib-question my-class">  
+        <div class="quizlib-question-title">5. What type of connective tissue is found in the ear and nose, providing flexible support?</div>  
+        <div class="quizlib-question-answers">  
+            <input type="radio" name="q5" value="Bone"> Bone<br/>
+            <input type="radio" name="q5" value="Cartilage"> Cartilage<br/>
+            <input type="radio" name="q5" value="Dense connective tissue"> Dense connective tissue<br/>
+            <input type="radio" name="q5" value="Loose connective tissue"> Loose connective tissue<br/>
+        </div>  
+    </div>  
+    <!-- Question 6 -->  
+    <div class="quizlib-question my-class">  
+        <div class="quizlib-question-title">6. Which type of connective tissue is responsible for transporting nutrients and waste products throughout the body?</div>  
+        <div class="quizlib-question-answers">  
+            <input type="radio" name="q6" value="Bone"> Bone<br/>
+            <input type="radio" name="q6" value="Cartilage"> Cartilage<br/>
+            <input type="radio" name="q6" value="Blood"> Blood<br/>
+            <input type="radio" name="q6" value="Lymph"> Lymph<br/>
+        </div>  
+    </div>  
+    <!-- Question 7 -->  
+    <div class="quizlib-question my-class">  
+        <div class="quizlib-question-title">7. What is the function of reticular connective tissue?</div>  
+        <div class="quizlib-question-answers">  
+            <input type="radio" name="q7" value="Support and bind other tissues"> Support and bind other tissues<br/>
+            <input type="radio" name="q7" value="Store fat"> Store fat<br/>
+            <input type="radio" name="q7" value="Form a soft internal skeleton for organs"> Form a soft internal skeleton for organs<br/>
+            <input type="radio" name="q7" value="Transport oxygen"> Transport oxygen<br/>
+        </div>  
+    </div>  
+    <!-- Question 8 -->  
+    <div class="quizlib-question my-class">  
+        <div class="quizlib-question-title">8. Which type of connective tissue is characterized by a high density of collagen fibers?</div>  
+        <div class="quizlib-question-answers">  
+            <input type="radio" name="q8" value="Loose connective tissue"> Loose connective tissue<br/>
+            <input type="radio" name="q8" value="Dense connective tissue"> Dense connective tissue<br/>
+            <input type="radio" name="q8" value="Adipose tissue"> Adipose tissue<br/>
+            <input type="radio" name="q8" value="Reticular tissue"> Reticular tissue<br/>
+        </div>  
+    </div>  
+    <!-- Question 9 -->  
+    <div class="quizlib-question my-class">  
+        <div class="quizlib-question-title">9. What is the primary function of bone tissue?</div>  
+        <div class="quizlib-question-answers">  
+            <input type="radio" name="q9" value="Store fat"> Store fat<br/>
+            <input type="radio" name="q9" value="Provide structural support"> Provide structural support<br/>
+            <input type="radio" name="q9" value="Transport nutrients"> Transport nutrients<br/>
+            <input type="radio" name="q9" value="Secrete hormones"> Secrete hormones<br/>
+        </div>  
+    </div>  
+    <!-- Question 10 -->  
+    <div class="quizlib-question my-class">  
+        <div class="quizlib-question-title">10. Which type of connective tissue is found in the walls of large arteries, providing elasticity?</div>  
+        <div class="quizlib-question-answers">  
+            <input type="radio" name="q10" value="Elastic connective tissue"> Elastic connective tissue<br/>
+            <input type="radio" name="q10" value="Dense regular connective tissue"> Dense regular connective tissue<br/>
+            <input type="radio" name="q10" value="Adipose tissue"> Adipose tissue<br/>
+            <input type="radio" name="q10" value="Reticular tissue"> Reticular tissue<br/>
+        </div>  
+    </div>  
+
     <!-- Answer Button -->
     <button type="button" onclick="myAnswerCheckMethod();">Check Answers</button>
 </div>
+<div id="result" class="hidden"></div>
+<script>
+    var quiz = new Quiz('quiz-div', ['Support and bind other tissues', 'Dense connective tissue', 'Ground substance', 'Adipose tissue', 'Cartilage', 'Blood', 'Form a soft internal skeleton for organs', 'Dense connective tissue', 'Provide structural support', 'Elastic connective tissue']);
+    function myAnswerCheckMethod() {
+        // checkAnswers returns true if all questions have been answered and updates the result object
+        if (quiz.checkAnswers()) {
+            console.log('Correct answers: ' + quiz.result.score + '/' + quiz.result.totalQuestions);
+            console.log('Percent correct: ' + quiz.result.scorePercentFormatted + '%');
+            document.getElementById('result').classList.remove('hidden');
+            document.getElementById('result').textContent = 'Correct answers: ' + quiz.result.score + '/' + quiz.result.totalQuestions + ' (' + quiz.result.scorePercentFormatted + '%)';
+        }
+        
+        // Alternatively, we can ignore unanswered questions by passing false
+        quiz.checkAnswers(false);
+        console.log('Correct answers: ' + quiz.result.score + '/' + quiz.result.totalQuestions);
+        console.log('Percent correct: ' + quiz.result.scorePercentFormatted + '%');
+
+        // We can also use the highResults method to highlight correct and incorrect answers.
+        // We pass a callback which takes the quiz object, the current question, the question number and whether it was answered correctly.
+        // quiz.highlightResults(myHandleAnswerMethod);
+    }
+</script>
 </body>
 </html>
