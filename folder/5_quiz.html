@@ -192,7 +192,21 @@
 <div id="result" class="hidden"></div>
 <iframe src="footer.html" frameborder="0" style="bottom: 0;"></iframe>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if the user has already taken the quiz
+        const storedScore = localStorage.getItem('quizScore');
+        const storedTotalQuestions = localStorage.getItem('totalQuestions');
+        if (storedScore !== null && storedTotalQuestions !== null) {
+            // User has already taken the quiz, show the result
+            document.getElementById('result').classList.remove('hidden');
+            document.getElementById('result').textContent = `Your score is ${storedScore} out of ${storedTotalQuestions}`;
+            document.getElementById('submit-btn').classList.add('hidden');
+            document.getElementById('quiz-div').classList.add('hidden');
+        }
+    });
+
     var quiz = new Quiz('quiz-div', ['Support and bind other tissues', 'Dense connective tissue', 'Ground substance', 'Adipose tissue', 'Cartilage', 'Blood', 'Form a soft internal skeleton for organs', 'Dense connective tissue', 'Provide structural support', 'Elastic connective tissue']);
+    
     function myAnswerCheckMethod() {
         // checkAnswers returns true if all questions have been answered and updates the result object
         if (quiz.checkAnswers()) {
@@ -200,6 +214,11 @@
             console.log('Percent correct: ' + quiz.result.scorePercentFormatted + '%');
             document.getElementById('result').classList.remove('hidden');
             document.getElementById('result').textContent = 'Correct answers: ' + quiz.result.score + '/' + quiz.result.totalQuestions + ' (' + quiz.result.scorePercentFormatted + '%)';
+            // Save the score in localStorage
+            localStorage.setItem('quizScore', quiz.result.score);
+            localStorage.setItem('totalQuestions', quiz.result.totalQuestions);
+            document.getElementById('submit-btn').classList.add('hidden');
+            document.getElementById('quiz-div').classList.add('hidden');
         }
         
         // Alternatively, we can ignore unanswered questions by passing false
