@@ -81,7 +81,7 @@ img {
     .parent {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 0.2fr repeat(2, 1fr) 0.1fr 0.2fr repeat(2, 1fr) 0.1fr repeat(2, 1fr) 0.1fr repeat(2, 1fr);
+        grid-template-rows: 0.075fr repeat(2, 1fr) 0.05fr 0.075fr repeat(2, 0.5fr) 0.05fr repeat(2, 0.5fr) 0.05fr repeat(2, 0.5fr);
         grid-column-gap: 5px;
         grid-row-gap: 5px;
     }
