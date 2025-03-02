@@ -3,8 +3,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fluid Connective Tissue</title>
+    <style>
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 1fr 0.1fr 0.3fr 1fr 0.1fr 1fr 0.1fr 1fr;
+            grid-column-gap: 5px;
+            grid-row-gap: 5px;
+        }
+
+        .div1 { grid-area: 1 / 1 / 2 / 3; }
+        .div2 { grid-area: 2 / 1 / 3 / 3; }
+        .div3 { grid-area: 3 / 1 / 4 / 3; }
+        .div4 { grid-area: 4 / 1 / 5 / 2; }
+        .div5 { grid-area: 4 / 2 / 5 / 3; }
+        .div6 { grid-area: 5 / 1 / 6 / 3; }
+        .div7 { grid-area: 6 / 1 / 7 / 2; }
+        .div8 { grid-area: 6 / 2 / 7 / 3; }
+        .div9 { grid-area: 7 / 1 / 8 / 3; }
+        .div10 { grid-area: 8 / 1 / 9 / 2; }
+        .div11 { grid-area: 8 / 2 / 9 / 3; }
+
+        @media only screen and (max-width: 800px) {
+            .parent {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 0.1fr 0.3fr repeat(2, 1fr) 0.1fr repeat(2, 1fr) 0.1fr repeat(2, 1fr);
+                grid-column-gap: 5px;
+                grid-row-gap: 5px;
+            }
+
+            .div1 { grid-area: 1 / 1 / 2 / 2; }
+            .div2 { grid-area: 2 / 1 / 3 / 2; }
+            .div3 { grid-area: 3 / 1 / 4 / 2; }
+            .div4 { grid-area: 4 / 1 / 5 / 2; }
+            .div5 { grid-area: 5 / 1 / 6 / 2; }
+            .div6 { grid-area: 6 / 1 / 7 / 2; }
+            .div7 { grid-area: 7 / 1 / 8 / 2; }
+            .div8 { grid-area: 8 / 1 / 9 / 2; }
+            .div9 { grid-area: 9 / 1 / 10 / 2; }
+            .div10 { grid-area: 10 / 1 / 11 / 2; }
+            .div11 { grid-area: 11 / 1 / 12 / 2; }
+    }
+    </style>
 </head>
 <body>
     <iframe src="header.html" frameborder="0" scrolling="no"></iframe>
+
+    <main>
+        <div class="parent">
+            <div class="div1">
+                <h1>Dense (Fibrous) Connective Tissue</h1>
+                <p><b>Location</b>: tendons, ligaments, skin
+                    <br><b>Structure</b>: collagen fibers packed close together
+                    <b>Function</b>: connect and can withstand pulling forces.
+            </div>
+            <div class="div2"><hr></div>
+            <div class="div3"><h1>Types of Dense Connective Tissue</h1></div>
+            <div class="div4">
+                <h3>Dense Regular Connective Tissue</h3>
+                <ul>
+                    <li>has extracellular fibers that all run in the same direction and plane</li>
+                    <li><b>Example</b>: tendon, ligament, and fascia</li>
+                </ul>
+            </div>
+            <div class="div5"><img src="" alt=""></div>
+            <div class="div6"><hr></div>
+            <div class="div7">
+                <h3>Dense Irregular Connective Tissue</h3>
+                <ul>
+                    <li>contains collagen and elastic fibers which are found running in all different directions and planes</li>
+                    <li><b>Example</b>: dermis of the skin</li>
+                </ul>
+            </div>
+            <div class="div8"><img src="" alt=""></div>
+            <div class="div9"><hr></div>
+            <div class="div10">
+                <h3>Elastic Connective Tissue</h3>
+                <ul>
+                    <li>made up of freely branching elastic fibers with fibroblasts in the spaces between the fibers.</li>
+                    <li><b>Example</b>: elastic ligament in between vertebrae, aorta, vocal cords in larynx.</li>
+                </ul>
+            </div>
+            <div class="div11"><img src="" alt=""></div>
+        </div>
+    </main>
+
+    <iframe src="footer.html" frameborder="0"></iframe>
 </body>
 </html>
