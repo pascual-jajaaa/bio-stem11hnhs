@@ -29,6 +29,13 @@ nav ul li a {
 
 main {
     padding: 20px;
+    font-size: larger;
+}
+
+@media only screen and (max-width: 800px) {
+    main {
+        font-size: medium;
+    }
 }
 
 footer {
@@ -45,4 +52,10 @@ iframe {
     width: 100%;
     height: 30dvh;
     display: block;
+}
+
+div > image {
+    object-fit: cover;
+    width: 50%;
+    max-height: 100%;
 }
