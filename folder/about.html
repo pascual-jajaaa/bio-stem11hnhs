@@ -11,6 +11,7 @@
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -18,7 +19,7 @@
         }
         .slideshow-container {
             position: relative;
-            max-width: 600px;
+            max-width: 400px;
             margin: auto;
             overflow: hidden;
             border: 2px solid #ddd;
@@ -55,18 +56,34 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
         main {
-            margin-top: calc(15dvh + 250px);
+            margin-top: calc(15dvh + 150px);
+            margin-bottom: calc(15dvh + 150px);
         }
-        @media screen and (max-width: 800px) {
-            main {
-                margin-top: calc(25dvh + 100px);
-            }
+        
+        section {
+            text-align: center;
         }
     </style>
 </head>
 <body>
 <iframe src="header.html" frameborder="0" scrolling="no" style="position: fixed; top: 0;"></iframe>
 <main>
+<section>
+    <h1>The Group 2</h1>
+    <p>
+        This website was created by the members of 11 STEM A Group 2. The group is composed of the following students: <br>
+        Pascual, Jarred B. <br>
+        Baluyot, Neo Marco M. <br>
+        Diaz, Aaron Jay S. <br>
+        Ruaburo, John Eduard C. <br>
+        Alameda, Ma. Ayhella B. <br>
+        Ampil, Gracetine Mae B. <br>
+        Evangelista, Merry Ahne C. <br>
+        Ocampo, Billy Jane L. <br>
+        Serundo, Erica Lorrayne G. <br>
+        Sibonga, Reige S. <br>
+    </p>
+</section>
 <div class="slideshow-container">
     <img class="slides active" src="pics/1 (1).jpeg" alt="Image 1">
     <img class="slides active" src="pics/1 (2).jpeg" alt="Image 2">
@@ -97,7 +114,7 @@
     <img class="slides active" src="pics/1 (27).jpeg" alt="Image 27">
     <a class="prev" onclick="changeSlide(-1)" style="z-index: 1;">&#10094;</a>
     <a class="next" onclick="changeSlide(1)" style="z-index: 1;">&#10095;</a>
-</div>
+</div> <br><br><br><br>
 </main>
 <iframe src="footer.html" frameborder="0" style="position: fixed; bottom: 0; z-index: 2;"></iframe>
 <script>
