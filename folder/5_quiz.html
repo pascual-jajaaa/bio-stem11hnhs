@@ -204,15 +204,18 @@
         // Check if the user has already taken the quiz
         const storedScore = localStorage.getItem('quizScore');
         const storedTotalQuestions = localStorage.getItem('totalQuestions');
-        const storedUserAnswers = JSON.parse(localStorage.getItem('userAnswers'));
-        const storedCorrectAnswers = JSON.parse(localStorage.getItem('correctAnswers'));
+        const storedUserAnswers = localStorage.getItem('userAnswers');
+        const storedCorrectAnswers = localStorage.getItem('correctAnswers');
 
         if (storedScore !== null && storedTotalQuestions !== null && storedUserAnswers !== null && storedCorrectAnswers !== null) {
+            const userAnswers = JSON.parse(storedUserAnswers);
+            const correctAnswers = JSON.parse(storedCorrectAnswers);
+
             // User has already taken the quiz, show the result
             document.getElementById('result').classList.remove('hidden');
             document.getElementById('result').textContent = `Your score is ${storedScore} out of ${storedTotalQuestions}`;
             document.getElementById('submit-btn').classList.add('hidden');
-            highlightResults(storedUserAnswers, storedCorrectAnswers);
+            highlightResults(userAnswers, correctAnswers);
             disableInputs();
         }
     });
