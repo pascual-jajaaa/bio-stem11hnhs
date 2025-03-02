@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QUIZ!</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="./quizlib/src/quizlib.css">
     <script type="text/javascript" src="./quizlib/src/quizlib.js"></script>
     <style>
@@ -74,9 +75,14 @@
         #result.incorrect {
             color: red;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
+<iframe src="header.html" frameborder="0" scrolling="no" style="position:fixed; top: 0;"></iframe>
 <!-- Quiz Container -->  
 <div id="quiz-div">  
     <!-- Question 1 -->  
@@ -181,9 +187,10 @@
     </div>  
 
     <!-- Answer Button -->
-    <button type="button" onclick="myAnswerCheckMethod();">Check Answers</button>
+    <button type="button" onclick="myAnswerCheckMethod();" id="submit-btn">Check Answers</button>
 </div>
 <div id="result" class="hidden"></div>
+<iframe src="footer.html" frameborder="0" style="position: fixed; bottom: 0;"></iframe>
 <script>
     var quiz = new Quiz('quiz-div', ['Support and bind other tissues', 'Dense connective tissue', 'Ground substance', 'Adipose tissue', 'Cartilage', 'Blood', 'Form a soft internal skeleton for organs', 'Dense connective tissue', 'Provide structural support', 'Elastic connective tissue']);
     function myAnswerCheckMethod() {
@@ -199,10 +206,32 @@
         quiz.checkAnswers(false);
         console.log('Correct answers: ' + quiz.result.score + '/' + quiz.result.totalQuestions);
         console.log('Percent correct: ' + quiz.result.scorePercentFormatted + '%');
-
+        document.getElementById('submit-btn').classList.add('hidden');
         // We can also use the highResults method to highlight correct and incorrect answers.
         // We pass a callback which takes the quiz object, the current question, the question number and whether it was answered correctly.
-        // quiz.highlightResults(myHandleAnswerMethod);
+        quiz.highlightResults(handleAnswers);
+    }
+
+    function handleAnswers(quiz, question, no, correct) {
+        if (!correct) {
+            var answers = question.getElementsByTagName('input');
+            for (var i = 0; i < answers.length; i++) {
+                if (answers[i].type === "checkbox" || answers[i].type === "radio"){ 
+                    // If the current input element is part of the correct answer, highlight it
+                    if (quiz.answers[no].indexOf(answers[i].value) > -1) {
+                        answers[i].parentNode.classList.add(Quiz.Classes.CORRECT);
+                    }
+                } else {
+                    // If the input is anything other than a checkbox or radio button, show the correct answer next to the element
+                    var correctAnswer = document.createElement('span');
+                    correctAnswer.classList.add(Quiz.Classes.CORRECT);
+                    correctAnswer.classList.add(Quiz.Classes.TEMP); // quiz.checkAnswers will automatically remove elements with the temp class
+                    correctAnswer.innerHTML = quiz.answers[no];
+                    correctAnswer.style.marginLeft = '10px';
+                    answers[i].parentNode.insertBefore(correctAnswer, answers[i].nextSibling);
+                }
+            }
+        }
     }
 </script>
 </body>
