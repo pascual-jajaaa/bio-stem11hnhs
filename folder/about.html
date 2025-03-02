@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About the Authors | STEM 11A GROUP 2</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="folder/stem_logo.png" type="image/x-icon" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -94,17 +95,14 @@
     <img class="slides active" src="pics/1 (25).jpeg" alt="Image 25">
     <img class="slides active" src="pics/1 (26).jpeg" alt="Image 26">
     <img class="slides active" src="pics/1 (27).jpeg" alt="Image 27">
-    
-
     <a class="prev" onclick="changeSlide(-1)" style="z-index: 1;">&#10094;</a>
     <a class="next" onclick="changeSlide(1)" style="z-index: 1;">&#10095;</a>
 </div>
 </main>
-<iframe src="footer.html" frameborder="0" style="position: fixed; bottom: 0;"></iframe>
+<iframe src="footer.html" frameborder="0" style="position: fixed; bottom: 0; z-index: 2;"></iframe>
 <script>
     let slideIndex = 0;
     showSlides();
-
     function showSlides() {
         const slides = document.getElementsByClassName("slides");
         for (let i = 0; i < slides.length; i++) {
@@ -113,14 +111,11 @@
         slideIndex++;
         if (slideIndex > slides.length) {slideIndex = 1}    
         slides[slideIndex - 1].style.display = "block";  
-        //setTimeout(showSlides, 6000); // Change image every 3 seconds
     }
-
     function changeSlide(n) {
         slideIndex += n - 1; // Adjust for the current slide
         showSlides();
     }
 </script>
-
 </body>
 </html>

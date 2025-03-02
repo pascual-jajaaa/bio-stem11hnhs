@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="./quizlib/src/quizlib.css">
     <script type="text/javascript" src="./quizlib/src/quizlib.js"></script>
+    <link rel="icon" href="folder/stem_logo.png" type="image/x-icon" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +15,6 @@
             margin: 0;
             padding: 20px;
         }
-
         #quiz-div {
             background: white;
             padding: 20px;
@@ -23,31 +23,25 @@
             max-width: 800px;
             margin: 0 auto;
         }
-
         .quizlib-question {
             margin-bottom: 20px;
         }
-
         .quizlib-question-title {
             font-size: 18px;
             font-weight: bold;
             margin-bottom: 10px;
         }
-
         .quizlib-question-answers {
             margin-bottom: 10px;
         }
-
         .quizlib-question-answers input {
             margin-right: 10px;
         }
-
         .quizlib-question-answers label {
             display: block;
             margin-bottom: 5px;
             cursor: pointer;
         }
-
         button {
             display: block;
             width: 100%;
@@ -60,7 +54,6 @@
             cursor: pointer;
             margin-top: 20px;
         }
-
         button:hover {
             background-color: #0056b3;
         }
@@ -71,11 +64,9 @@
             margin-top: 20px;
             color: green;
         }
-
         #result.incorrect {
             color: red;
         }
-
         .hidden {
             display: none;
         }
@@ -83,9 +74,7 @@
 </head>
 <body>
 <iframe src="header.html" frameborder="0" scrolling="no" style="top: 0;"></iframe>
-<!-- Quiz Container -->  
 <div id="quiz-div">  
-    <!-- Question 1 -->  
     <div class="quizlib-question my-class">  
         <div class="quizlib-question-title">1. What is the primary function of connective tissues?</div>  
         <div class="quizlib-question-answers">  
@@ -95,7 +84,6 @@
             <label><input type="radio" name="q1" value="Secrete hormones"> Secrete hormones</label>
         </div>  
     </div>  
-    <!-- Question 2 -->  
     <div class="quizlib-question my-class">  
         <div class="quizlib-question-title">2. Which type of connective tissue is found in tendons and ligaments?</div>  
         <div class="quizlib-question-answers">  
@@ -105,7 +93,6 @@
             <label><input type="radio" name="q2" value="Bone"> Bone</label>
         </div>  
     </div>  
-    <!-- Question 3 -->  
     <div class="quizlib-question my-class">  
         <div class="quizlib-question-title">3. What is the main component of the extracellular matrix in connective tissues?</div>  
         <div class="quizlib-question-answers">  
@@ -115,7 +102,6 @@
             <label><input type="radio" name="q3" value="Blood vessels"> Blood vessels</label>
         </div>  
     </div>  
-    <!-- Question 4 -->  
     <div class="quizlib-question my-class">  
         <div class="quizlib-question-title">4. Which type of connective tissue acts as a shock absorber and insulates the body?</div>  
         <div class="quizlib-question-answers">  
@@ -125,7 +111,6 @@
             <label><input type="radio" name="q4" value="Dense regular tissue"> Dense regular tissue</label>
         </div>  
     </div>  
-    <!-- Question 5 -->  
     <div class="quizlib-question my-class">  
         <div class="quizlib-question-title">5. What type of connective tissue is found in the ear and nose, providing flexible support?</div>  
         <div class="quizlib-question-answers">  
@@ -135,7 +120,6 @@
             <label><input type="radio" name="q5" value="Loose connective tissue"> Loose connective tissue</label>
         </div>  
     </div>  
-    <!-- Question 6 -->  
     <div class="quizlib-question my-class">  
         <div class="quizlib-question-title">6. Which type of connective tissue is responsible for transporting nutrients and waste products throughout the body?</div>  
         <div class="quizlib-question-answers">  
@@ -145,7 +129,6 @@
             <label><input type="radio" name="q6" value="Lymph"> Lymph</label>
         </div>  
     </div>  
-    <!-- Question 7 -->  
     <div class="quizlib-question my-class">  
         <div class="quizlib-question-title">7. What is the function of reticular connective tissue?</div>  
         <div class="quizlib-question-answers">  
@@ -155,7 +138,6 @@
             <label><input type="radio" name="q7" value="Transport oxygen"> Transport oxygen</label>
         </div>  
     </div>  
-    <!-- Question 8 -->  
     <div class="quizlib-question my-class">  
         <div class="quizlib-question-title">8. Which type of connective tissue is characterized by a high density of collagen fibers?</div>  
         <div class="quizlib-question-answers">  
@@ -165,7 +147,6 @@
             <label><input type="radio" name="q8" value="Reticular tissue"> Reticular tissue</label>
         </div>  
     </div>  
-    <!-- Question 9 -->  
     <div class="quizlib-question my-class">  
         <div class="quizlib-question-title">9. What is the primary function of bone tissue?</div>  
         <div class="quizlib-question-answers">  
@@ -175,7 +156,6 @@
             <label><input type="radio" name="q9" value="Secrete hormones"> Secrete hormones</label>
         </div>  
     </div>  
-    <!-- Question 10 -->  
     <div class="quizlib-question my-class">  
         <div class="quizlib-question-title">10. Which type of connective tissue is found in the walls of large arteries, providing elasticity?</div>  
         <div class="quizlib-question-answers">  
@@ -185,8 +165,6 @@
             <label><input type="radio" name="q10" value="Reticular tissue"> Reticular tissue</label>
         </div>  
     </div>  
-
-    <!-- Answer Button -->
     <button type="button" onclick="myAnswerCheckMethod();" id="submit-btn">Check Answers</button>
 </div>
 <div id="result" class="hidden"></div>
@@ -205,9 +183,7 @@
             disableInputs();
         }
     });
-
     var quiz = new Quiz('quiz-div', ['Support and bind other tissues', 'Dense connective tissue', 'Ground substance', 'Adipose tissue', 'Cartilage', 'Blood', 'Form a soft internal skeleton for organs', 'Dense connective tissue', 'Provide structural support', 'Elastic connective tissue']);
-    
     function myAnswerCheckMethod() {
         // checkAnswers returns true if all questions have been answered and updates the result object
         if (quiz.checkAnswers()) {
@@ -222,7 +198,6 @@
             //document.getElementById('quiz-div').classList.add('hidden');
             disableInputs();
         }
-        
         // Alternatively, we can ignore unanswered questions by passing false
         quiz.checkAnswers(false);
         console.log('Correct answers: ' + quiz.result.score + '/' + quiz.result.totalQuestions);
@@ -232,7 +207,6 @@
         // We pass a callback which takes the quiz object, the current question, the question number and whether it was answered correctly.
         quiz.highlightResults(handleAnswers);
     }
-
     function handleAnswers(quiz, question, no, correct) {
         if (!correct) {
             var answers = question.getElementsByTagName('input');
