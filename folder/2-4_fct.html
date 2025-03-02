@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluid Connective Tissue</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="stem_logo.png" type="image/x-icon" /> 
+    <style>
+        .parent {
+            display: grid;
+            grid-template-columns: 1fr 0.5fr;
+            grid-template-rows: auto;
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+        }
+
+        .div1 { grid-column: 1 / -1; }
+        .div2 { grid-column: 1 / -1; }
+        .div3 { grid-column: 1 / -1; }
+        .div4 { grid-column: 1 / 2; }
+        .div5 { grid-column: 2 / 3; }
+        .div6 { grid-column: 1 / -1; }
+        .div7 { grid-column: 1 / 2; }
+        .div8 { grid-column: 2 / 3; }
+        .div9 { grid-column: 1 / -1; }
+        .div10 { grid-column: 1 / 2; }
+        .div11 { grid-column: 2 / 3; }
+        .div12 { grid-column: 1 / -1; }
+        .div13 { grid-column: 1 / 2; }
+        .div14 { grid-column: 2 / 3; }
+        .div15 { grid-column: 1 / -1; }
+        .div16 { grid-column: 1 / 2; }
+        .div17 { grid-column: 2 / 3; }
+
+        @media only screen and (max-width: 800px) {
+            .parent {
+                grid-template-columns: 1fr;
+            }
+
+            .div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .div9, .div10, .div11, .div12, .div13, .div14, .div15, .div16, .div17 {
+                grid-column: 1 / -1;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <iframe src="header.html" frameborder="0" scrolling="no"></iframe>
+
+    <main>
+        <div class="parent">
+            <div class="div1">
+                <h1>Fluid Connective Tissue</h1>
+                <p>primarily in transportation of substances such as oxygen, nutrients, hormones, and waste products throughout the body.</p>
+            </div>
+            <div class="div2"><hr></div>
+            <div class="div3">
+                <h1>Types of Fluid Connective Tissue</h1>
+            </div>
+            <div class="div4">
+                <h3>Blood</h3>
+                <ul>
+                    <li>blood cells suspended in plasma</li>
+                    <li>RBC, WBC and platelets</li>
+                    <li>transport food, oxygen, waste, hormones</li>
+                </ul>
+            </div>
+            <div class="div5"><img src="ss/16.jpg" alt="Bone"></div>
+            <div class="div6"><hr></div>
+            <div class="div7">
+                <h3>Lymph</h3>
+                <ul>
+                    <li>clear fluid that circulates through the lymphatic system</li>
+                    <li>lymphocytes and other immune cells</li>
+                </ul>
+            </div>
+            <div class="div8"><img src="ss/17.png" alt=""></div>
+        </div>
+    </main>
+
+    <iframe src="footer.html" frameborder="0"></iframe>
+</body>
+</html>
