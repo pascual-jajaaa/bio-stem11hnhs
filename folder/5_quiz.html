@@ -79,6 +79,14 @@
         .hidden {
             display: none;
         }
+
+        .correct {
+            background-color: #d4edda;
+        }
+
+        .incorrect {
+            background-color: #f8d7da;
+        }
     </style>
 </head>
 <body>
@@ -196,12 +204,16 @@
         // Check if the user has already taken the quiz
         const storedScore = localStorage.getItem('quizScore');
         const storedTotalQuestions = localStorage.getItem('totalQuestions');
-        if (storedScore !== null && storedTotalQuestions !== null) {
+        const storedUserAnswers = JSON.parse(localStorage.getItem('userAnswers'));
+        const storedCorrectAnswers = JSON.parse(localStorage.getItem('correctAnswers'));
+
+        if (storedScore !== null && storedTotalQuestions !== null && storedUserAnswers !== null && storedCorrectAnswers !== null) {
             // User has already taken the quiz, show the result
             document.getElementById('result').classList.remove('hidden');
             document.getElementById('result').textContent = `Your score is ${storedScore} out of ${storedTotalQuestions}`;
             document.getElementById('submit-btn').classList.add('hidden');
-            document.getElementById('quiz-div').classList.add('hidden');
+            highlightResults(storedUserAnswers, storedCorrectAnswers);
+            disableInputs();
         }
     });
 
@@ -214,43 +226,42 @@
             console.log('Percent correct: ' + quiz.result.scorePercentFormatted + '%');
             document.getElementById('result').classList.remove('hidden');
             document.getElementById('result').textContent = 'Correct answers: ' + quiz.result.score + '/' + quiz.result.totalQuestions + ' (' + quiz.result.scorePercentFormatted + '%)';
-            // Save the score in localStorage
+            // Save the score and answers in localStorage
             localStorage.setItem('quizScore', quiz.result.score);
             localStorage.setItem('totalQuestions', quiz.result.totalQuestions);
+            localStorage.setItem('userAnswers', JSON.stringify(quiz.userAnswers));
+            localStorage.setItem('correctAnswers', JSON.stringify(quiz.answers));
             document.getElementById('submit-btn').classList.add('hidden');
-            document.getElementById('quiz-div').classList.add('hidden');
+            highlightResults(quiz.userAnswers, quiz.answers);
+            disableInputs();
         }
-        
-        // Alternatively, we can ignore unanswered questions by passing false
-        quiz.checkAnswers(false);
-        console.log('Correct answers: ' + quiz.result.score + '/' + quiz.result.totalQuestions);
-        console.log('Percent correct: ' + quiz.result.scorePercentFormatted + '%');
-        document.getElementById('submit-btn').classList.add('hidden');
-        // We can also use the highResults method to highlight correct and incorrect answers.
-        // We pass a callback which takes the quiz object, the current question, the question number and whether it was answered correctly.
-        quiz.highlightResults(handleAnswers);
     }
 
-    function handleAnswers(quiz, question, no, correct) {
-        if (!correct) {
-            var answers = question.getElementsByTagName('input');
-            for (var i = 0; i < answers.length; i++) {
-                if (answers[i].type === "checkbox" || answers[i].type === "radio"){ 
-                    // If the current input element is part of the correct answer, highlight it
-                    if (quiz.answers[no].indexOf(answers[i].value) > -1) {
-                        answers[i].parentNode.classList.add(Quiz.Classes.CORRECT);
+    function highlightResults(userAnswers, correctAnswers) {
+        const questions = document.querySelectorAll('.quizlib-question');
+        questions.forEach((question, index) => {
+            const inputs = question.querySelectorAll('input');
+            inputs.forEach(input => {
+                if (userAnswers[index] === input.value) {
+                    if (correctAnswers[index].includes(input.value)) {
+                        input.parentNode.classList.add('correct');
+                    } else {
+                        input.parentNode.classList.add('incorrect');
                     }
-                } else {
-                    // If the input is anything other than a checkbox or radio button, show the correct answer next to the element
-                    var correctAnswer = document.createElement('span');
-                    correctAnswer.classList.add(Quiz.Classes.CORRECT);
-                    correctAnswer.classList.add(Quiz.Classes.TEMP); // quiz.checkAnswers will automatically remove elements with the temp class
-                    correctAnswer.innerHTML = quiz.answers[no];
-                    correctAnswer.style.marginLeft = '10px';
-                    answers[i].parentNode.insertBefore(correctAnswer, answers[i].nextSibling);
                 }
-            }
-        }
+                // Highlight correct answers
+                if (correctAnswers[index].includes(input.value)) {
+                    input.parentNode.classList.add('correct');
+                }
+            });
+        });
+    }
+
+    function disableInputs() {
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.disabled = true;
+        });
     }
 </script>
 </body>
