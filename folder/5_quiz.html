@@ -219,6 +219,7 @@
             localStorage.setItem('totalQuestions', quiz.result.totalQuestions);
             document.getElementById('submit-btn').classList.add('hidden');
             //document.getElementById('quiz-div').classList.add('hidden');
+            disableInputs();
         }
         
         // Alternatively, we can ignore unanswered questions by passing false
@@ -250,6 +251,13 @@
                     answers[i].parentNode.insertBefore(correctAnswer, answers[i].nextSibling);
                 }
             }
+        }
+    }
+
+    function disableInputs() {
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = true;
         }
     }
 </script>
