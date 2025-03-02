@@ -219,7 +219,7 @@
                 } else {
                     // If the input is anything other than a checkbox or radio button, show the correct answer next to the element
                     var correctAnswer = document.createElement('span');
-                    correctAnswer.classList.add(Quiz.Classes.CORRECT);
+                    //correctAnswer.classList.add(Quiz.Classes.CORRECT);
                     correctAnswer.classList.add(Quiz.Classes.TEMP); // quiz.checkAnswers will automatically remove elements with the temp class
                     correctAnswer.innerHTML = quiz.answers[no];
                     correctAnswer.style.marginLeft = '10px';
