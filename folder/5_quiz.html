@@ -201,7 +201,7 @@
             document.getElementById('result').classList.remove('hidden');
             document.getElementById('result').textContent = `Your score is ${storedScore} out of ${storedTotalQuestions}`;
             document.getElementById('submit-btn').classList.add('hidden');
-            document.getElementById('quiz-div').classList.add('hidden');
+            //document.getElementById('quiz-div').classList.add('hidden');
         }
     });
 
@@ -218,7 +218,7 @@
             localStorage.setItem('quizScore', quiz.result.score);
             localStorage.setItem('totalQuestions', quiz.result.totalQuestions);
             document.getElementById('submit-btn').classList.add('hidden');
-            document.getElementById('quiz-div').classList.add('hidden');
+            //document.getElementById('quiz-div').classList.add('hidden');
         }
         
         // Alternatively, we can ignore unanswered questions by passing false
