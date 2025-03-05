@@ -22,5 +22,28 @@
     <script src="./json.js"></script>
     <script src="./theme.js"></script>
     <script src="./index.js"></script>
+    <script>
+      $(document).ready(function() {
+        const survey = new Survey.Model(json);
+        survey.applyTheme(themeJson);
+
+        // Load survey results from user.json
+        $.ajax({
+          url: './user.json',
+          type: 'GET',
+          dataType: 'json',
+          success: function(data) {
+            const surveyResults = data.map(entry => entry.surveyData);
+
+            const surveyAnalytics = new SurveyAnalytics.VisualizationPanel(
+              document.getElementById("surveyVizPanel"),
+              survey.getAllQuestions(),
+              surveyResults
+            );
+            surveyAnalytics.render();
+          }
+        });
+      });
+    </script>
   </body>
 </html>
