@@ -236,7 +236,7 @@ const json = {
     "startSurveyText": "Start Quiz",
     "firstPageIsStarted": true,
     "questionsOnPageMode": "questionPerPage",
-    "timeLimit": 120,
+    "timeLimit": 180,
     "showTimer": true,
     "headerView": "advanced"
    };
