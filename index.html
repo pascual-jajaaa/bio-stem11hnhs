@@ -32,8 +32,10 @@
                 "format":"node_array",
                 "data":[
                     {"id":"root", "isroot":true, "topic":"<a href='folder/1_intro.html'>Connective Tissue</a>"},
+                    {"id":"types", "parentid":"root", "topic":"<a href='folder/2_types.html'>Types</a>", "direction":"down"},
+                    {"id":"components", "parentid":"root", "topic":"Components", "direction":"down"},
 
-                    {"id":"proper", "parentid":"root", "topic":"<a href='folder/2_types.html#ctp'>Connective Tissue Proper</a>", "direction":"left"},
+                    {"id":"proper", "parentid":"types", "topic":"<a href='folder/2_types.html#ctp'>Connective Tissue Proper</a>", "direction":"down"},
                     
                     {"id":"loose", "parentid":"proper", "topic":"<a href=''>Loose Connective Tissue</a>"},
                     {"id":"loose1", "parentid":"loose", "topic":"Adipose Connective Tissue"},
@@ -46,16 +48,44 @@
                     {"id":"dense3", "parentid":"dense", "topic":"Elastic Connective Tissue"},
 
 
-                    {"id":"fluid", "parentid":"root", "topic":"<a href='folder/2_types.html#fct'>Fluid Connective Tissue</a>", "direction":"right"},
+                    {"id":"fluid", "parentid":"types", "topic":"<a href='folder/2_types.html#fct'>Fluid Connective Tissue</a>", "direction":"down"},
                     {"id":"fluid1", "parentid":"fluid", "topic":"Blood"},
                     {"id":"fluid2", "parentid":"fluid", "topic":"Lymph"},
 
-                    {"id":"support", "parentid":"root", "topic":"<a href='folder/2_types.html#sct'>Supportive Connective Tissue</a>", "direction":"right"},
+                    {"id":"support", "parentid":"types", "topic":"<a href='folder/2_types.html#sct'>Supportive Connective Tissue</a>", "direction":"down"},
                     {"id":"bone", "parentid":"support", "topic":"Bone"},
                     {"id":"cartilage", "parentid":"support", "topic":"Cartilage"},
                     {"id":"cartilage1", "parentid":"cartilage", "topic":"Fibrocartilage"},
                     {"id":"cartilage2", "parentid":"cartilage", "topic":"Elastic Cartilage"},
                     {"id":"cartilage3", "parentid":"cartilage", "topic":"Hyaline Cartilage"},
+
+                    {"id":"cells", "parentid":"components", "topic":"<a href='folder/3_cells.html'>Cells</a>", "direction":"down"},
+                    {"id":"fibro", "parentid":"cells", "topic":"Fibroblasts"},
+                    {"id":"adipo", "parentid":"cells", "topic":"Adipocytes"},
+                    {"id":"chondro", "parentid":"cells", "topic":"Chondrocytes"},
+                    {"id":"oste", "parentid":"cells", "topic":"Osteocytes"},
+                    {"id":"macr", "parentid":"cells", "topic":"Macrophages"},
+                    {"id":"mast", "parentid":"cells", "topic":"Mast Cells"},
+                    {"id":"leuk", "parentid":"cells", "topic":"Leukocytes"},
+
+                    {"id":"fibers", "parentid":"components", "topic":"<a href='folder/4_fibers.html'>Fibers</a>", "direction":"down"},
+                    {"id":"collagen", "parentid":"fibers", "topic":"Collagen"},
+                    {"id":"retic", "parentid":"fibers", "topic":"Reticular"},
+                    {"id":"elastic", "parentid":"fibers", "topic":"Elastic"},
+
+                    {"id":"ground", "parentid":"components", "topic":"<a href='folder/5_ground.html'>Ground Substance</a>", "direction":"down"},
+                    {"id":"proteo", "parentid":"ground", "topic":"Proteoglycans"},
+                    {"id":"glyco", "parentid":"ground", "topic":"Glycosaminoglycans"},
+
+                    {"id":"matrix", "parentid":"components", "topic":"<a href='folder/6_matrix.html'>Extracellular Matrix</a>", "direction":"down"},
+                    {"id":"inter", "parentid":"matrix", "topic":"Interstitial Fluid"},
+                    {"id":"adhesion", "parentid":"matrix", "topic":"Cell Adhesion Proteins"},
+
+                    {"id":"origin", "parentid":"components", "topic":"<a href='folder/7_origin.html'>Connective Tissue Origin</a>", "direction":"down"},
+                    {"id":"mesenchyme", "parentid":"origin", "topic":"Mesenchyme"},
+                    {"id":"mucous", "parentid":"origin", "topic":"Mucous Connective Tissue"},
+
+                    
 
                 ]
             };
