@@ -5,6 +5,34 @@ survey.onComplete.add((sender, options) => {
 });
 $("#surveyElement").Survey({ model: survey });
 
+
+import fs from "fs";
+// reading a JSON file asynchronously
+fs.readFile("user.json", (error, data) => {
+    // if the reading process failed,
+    // throwing the error
+    if (error) {
+      // logging the error
+      console.error(error);
+  
+      throw err;
+    }
+  
+    // parsing the JSON object
+    // to convert it to a JavaScript object
+    const user = JSON.parse(data);
+  
+    // printing the JavaScript object
+    // retrieved from the JSON file
+    console.log(user);
+  });
+
+
+
+
+
+
+
 const surveyResults = [{
     "satisfaction-score": 5,
     "nps-score": 10
